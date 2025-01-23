@@ -56,9 +56,9 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author): RedirectResponse
     {
-        $author->update($request->validated());
-
-        return redirect()->route('home')->with('success', 'Autore' . $author->name . ' modificato correttamente');
+        $author->fill($request->validated());
+        $request->user()->save();
+        return redirect()->route('authors.edit')->with('success', 'Autore' . $author->name . ' modificato correttamente');
     }
 
     /**

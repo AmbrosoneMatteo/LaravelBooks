@@ -22,7 +22,7 @@ class StoreAuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:50|min:2',
+            'name' => 'required|string|max:100|min:2',
             'birthday' => 'date|format:Y-m-d',
         ];
     }
@@ -30,7 +30,7 @@ class StoreAuthorRequest extends FormRequest
         return [
             'name.required' => 'un nome è richiesto',
             'name.string' => 'nome deve essere una stringa',
-            'name.max' => 'nome deve contenere al massimo 50 caratteri',
+            'name.max' => 'nome deve contenere al massimo 100 caratteri',
             'name.min' => 'nome deve contenere minimo 2 caratteri',
             'birthday.date' => 'la data di nascita deve essere una data',
             'birthday.format' => 'la data di nascita non è formattata correttamente',
